@@ -9,7 +9,6 @@ export const getvideo = (obj) => async (dispatch) => {
     let { data } = await axios.get(
       `https://youtube.googleapis.com/youtube/v3/search?q=${obj.searchtext}&key=${API}&type=video&maxResults=30&part=snippet`
     );
-    // console.log(data)
     dispatch({
       type: "getvideoSuccess",
       payload: data,
