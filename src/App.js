@@ -1,13 +1,27 @@
-import './App.css';
-import Home from './components/Home/Home';
-import Video from './components/Video/Video';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Box } from "@mui/material";
+import {
+  Navbar,
+  Feed,
+  VideoDetail,
+  ChannelDetail,
+  SearchFeed,
+} from "./components/index";
+
 
 function App() {
   return (
-    <div className="App">
-      <Home/>
-      <Video/>
-    </div>
+    <BrowserRouter>
+      <Box sx={{ background: "#000" }}>
+        <Navbar />
+        <Routes>
+          <Route path="/" exact element={<Feed />} />
+          <Route path="/video/:id" exact element={<VideoDetail />} />
+          <Route path="/channel/:id" exact element={<ChannelDetail />} />
+          <Route path="/search/:searchTerm" exact element={<SearchFeed />} />
+        </Routes>
+      </Box>
+    </BrowserRouter>
   );
 }
 
